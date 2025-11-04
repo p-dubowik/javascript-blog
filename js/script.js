@@ -38,7 +38,7 @@
     
     /*[DONE] add class 'active' to the correct article */
     targetArticle.classList.add('active');
-  }
+  };
 
 
 
