@@ -50,6 +50,8 @@ body {
 
 .sidebar {
   flex: 1 0 0;
+  width: 100px;
+  overflow-wrap: break-word;
 }
 
 .posts {
@@ -117,4 +119,37 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+
+.list.tags{
+
+  display: block;
+
+  li{
+    display: inline;
+    margin: auto 5px;
+    white-space: nowrap;
+  }
+
+    .tag-size-1{
+      font-size: 100%;
+      color: magenta;
+}
+    .tag-size-2{
+      font-size: 120%;
+      color: purple;
+}
+    .tag-size-3{
+      font-size: 150%;
+      color: blue;
+    }
+    .tag-size-4{
+      font-size: 170%;
+      color: green;
+}
+    .tag-size-5{
+      font-size: 200%;
+      color: red;
+}
+
 }
