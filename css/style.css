@@ -102,31 +102,31 @@ body {
   margin: 0 10px 0 0;
 }
 
-.list.tags {
+.list.tags, .list.authors {
   display: block;
 }
-.list.tags li {
+.list.tags li, .list.authors li {
   display: inline;
   margin: auto 5px;
   white-space: nowrap;
 }
-.list.tags .tag-size-1 {
+.list.tags .tag-size-1, .list.authors .tag-size-1 {
   font-size: 100%;
   color: magenta;
 }
-.list.tags .tag-size-2 {
+.list.tags .tag-size-2, .list.authors .tag-size-2 {
   font-size: 120%;
   color: purple;
 }
-.list.tags .tag-size-3 {
+.list.tags .tag-size-3, .list.authors .tag-size-3 {
   font-size: 150%;
   color: blue;
 }
-.list.tags .tag-size-4 {
+.list.tags .tag-size-4, .list.authors .tag-size-4 {
   font-size: 170%;
   color: green;
 }
-.list.tags .tag-size-5 {
+.list.tags .tag-size-5, .list.authors .tag-size-5 {
   font-size: 200%;
   color: red;
 }

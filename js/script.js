@@ -49,7 +49,8 @@
     optAuthorSelector = '.post-author',
     optTagListSelector = '.tags.list',
     optCloudClassCount = 5,
-    optCloudClassPrefix = 'tag-size-' ;
+    optCloudClassPrefix = 'tag-size-',
+    optAuthorListSelector = '.authors.list' ;
 
   const generateTitleLinks = function(customSelector = '') {
 
@@ -187,7 +188,7 @@
     const clickedElement = this;
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-    console.log(href);
+    //console.log(href);
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
     /* find all tag links with class active */
@@ -226,22 +227,37 @@
   //Autorzy:
   function generateAuthors(){
     const articles = document.querySelectorAll(optArticleSelector);
+    let allAuthors = {};
+    console.log(allAuthors);
 
     for(let article of articles){
       const authors = article.querySelector(optAuthorSelector);
-      console.log(authors);
       let html = '';
-      const authorNameRaw = article.getAttribute('data-author');
-      const authorName = authorNameRaw.replace('-',' ')
-      console.log(authorName);
 
-      const linkHTML = 'by <a href="#author-' + authorNameRaw + '">' + authorName + '</a>'
+      const authorNameRaw = article.getAttribute('data-author');
+      const authorName = authorNameRaw.replace('-',' ');
+
+      const linkHTML = '<a href="#author-' + authorNameRaw + '">' + authorName + '</a>'
       html += linkHTML;
       authors.innerHTML = html;
-      console.log(authors.innerHTML);
 
+      if(!allAuthors[authorNameRaw]){
+        allAuthors[authorNameRaw] = 1;
+      } else {
+        allAuthors[authorNameRaw]++;
+      }
+      
     }
 
+    const authorList = document.querySelector(optAuthorListSelector);
+    let allAuthorsHTML = '';
+    const authorParams = calculateTagsParams(allAuthors);
+
+    for(let author in allAuthors){
+      allAuthorsHTML += '<li><a href="#author-' + author + '" class="' + calculateTagClass(allAuthors[author], authorParams) +'">' + author + '</a></li>';
+    }
+
+    authorList.innerHTML = allAuthorsHTML;
   }
 
   generateAuthors();
@@ -270,7 +286,7 @@
   }
 
   function addClickListenerToAuthors(){
-    const links = document.querySelectorAll('.post-author a');
+    const links = document.querySelectorAll('.post-author a, .authors.list a');
     for(let link of links){
       link.addEventListener('click', authorClickHandler);
     }
