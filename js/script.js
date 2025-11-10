@@ -201,7 +201,7 @@
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
     /* find all tag links with class active */
-    const activeTags = document.querySelectorAll('.active');
+    const activeTags = document.querySelectorAll('.titles.active');
     /* START LOOP: for each active tag link */
     for(let activeTag of activeTags){
       /* remove class active */
@@ -283,7 +283,7 @@
 
     const href = clickedElement.getAttribute('href');
     const author = href.replace('#author-','');
-    const activeAuthors = document.querySelectorAll('.active');
+    const activeAuthors = document.querySelectorAll('.titles.active');
 
     for(let activeAuthor of activeAuthors){
       activeAuthor.classList.remove('active');
